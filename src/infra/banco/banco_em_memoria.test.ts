@@ -1,8 +1,8 @@
-import {describe, expect,it, test} from 'vitest';
+import {describe, expect, it, test} from 'vitest';
 import BancoEmMemoria from './banco_em_memoria';
 
 describe('BancoEmMemoria', () => {
-    test('deve salvar um filme', () => {
+    test('deve salvar um filme', async() => {
     const filme = {
         id:1,
         titulo:'filme 1',
@@ -10,13 +10,13 @@ describe('BancoEmMemoria', () => {
         imagem:'imagem.jpg'
     }
     const bancoEmMemoria = new BancoEmMemoria()
-    bancoEmMemoria.salvar(filme)
+    await bancoEmMemoria.salvar(filme)
 
     expect(bancoEmMemoria.filmes).toEqual([filme])
     expect(bancoEmMemoria.filmes.length).toBe(1)
 
     })
-    test('deve listar os filmes salvos em memória', () => {
+    test('deve listar os filmes salvos em memória', async() => {
         const filme = {
             id:1,
             titulo:'filme 1',
@@ -26,12 +26,12 @@ describe('BancoEmMemoria', () => {
 
         const bancoEmMemoria = new BancoEmMemoria()
         //bancoEmMemoria.salvar(filme)
-        bancoEmMemoria.filmes.push(filme)
-        const resultado = bancoEmMemoria.listar()
+         bancoEmMemoria.filmes.push(filme)
+        const resultado = await bancoEmMemoria.listar()
         expect(resultado).toEqual([filme])
         
     })
-    test('deve buscar um filme pelo id', () => {
+    test('deve buscar um filme pelo id', async () => {
         const filme = {
             id:1,
             titulo:'filme 1',
@@ -48,10 +48,9 @@ describe('BancoEmMemoria', () => {
         bancoEmMemoria.filmes.push(filme)
         bancoEmMemoria.filmes.push(filme2)
 
-        const resultado = bancoEmMemoria.buscarPorId(1)
+        const resultado = await bancoEmMemoria.buscarPorId(1)
 
         expect(resultado).toEqual(filme)
         expect(bancoEmMemoria.filmes).toHaveLength(2)
     })
-    test('deve apagar todos os dados salvos em memória', () => {})
 })
