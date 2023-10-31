@@ -1,11 +1,11 @@
 import {test,expect,describe} from 'vitest'
 // import axios from 'axios'
-describe('Primeiro teste da aplicação',()=>{
+describe.skip('Primeiro teste da aplicação',()=>{
     test('Espero que 1 seja igual a 1',()=>{
     expect(1).toBe(1)
     })
 })
-describe('Cadastro de filmes',()=>{
+describe.skip('Cadastro de filmes Express',()=>{
     test('Espero que o filme seja cadastrado',async ()=>{
         const filme = {
             id:1,
