@@ -5,10 +5,3 @@ export default class ListaFilme{
         return this.filmeRepositorio.listar()
     }
 }
-
-type Filme = {
-    id:number,
-    titulo:string,
-    descricao:string,
-    imagem:string
-}
