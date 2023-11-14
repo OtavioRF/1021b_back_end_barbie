@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import FilmeRepositorioInterface from "../../aplicacao/filme_repositorio_interface";
 require("dotenv").config();
-export class BancoMongoDB implements  FilmeRepositorioInterface {
+export default class BancoMongoDB implements  FilmeRepositorioInterface {
   public filmeModelo: any;
   constructor() {
     try{
