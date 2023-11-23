@@ -16,5 +16,3 @@ describe("Testando salva filme use case", () => {
             expect(resultado).toEqual(input)
     })
 })
-
-
